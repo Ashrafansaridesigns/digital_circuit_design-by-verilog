@@ -1,1 +1,19 @@
+`timescale 1ns / 1ps
 
+module normal(x,y,z,d);
+input x,y,z;
+output [7:0] d;
+wire w1,w2,w3;
+assign w1 = ~z;
+assign w2 = ~y;
+assign w3 = ~x;
+assign d[0] = w1&w2&w3;
+assign d[1] = z&w2&w3;
+assign d[2] = w1&y&w3;
+assign d[3] = z&y&w3;
+assign d[4] = w1&w2&z;
+assign d[5] = z&w2&x;
+assign d[6] = w1&y&x;
+assign d[7] = x&y&z;
+
+endmodule
